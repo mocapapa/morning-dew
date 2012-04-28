@@ -37,7 +37,7 @@ $imageUrl=$baseUrl.'/systemImages/';
 
 	</div><!-- header -->
 
-  <hr>
+  <hr style="margin-top:20px;">
 	<div id="mainmenu">
   <div style="font-size:1.2em; color:#666;">
 

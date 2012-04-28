@@ -1,4 +1,5 @@
 <ul>
+<hr>
 <?php
 foreach ($models as $model)
 {
@@ -21,8 +22,6 @@ foreach ($models as $model)
 		echo CHtml::image('systemImages/icon-leaf.png', 'leaf', array('style'=>'vertical-align:middle;'));
 		echo '<b><font style="font-size:13px;">';
 	}
-
-
 
 	if ($model->clickable == 1) {
 		echo CHtml::link($model->title, array('article/show', 'id'=>$model->id));
