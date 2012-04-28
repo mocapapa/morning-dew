@@ -8,6 +8,7 @@
 
 <?php
 $newses = News::model()->findAll(new CDbCriteria(array(
+	'order'=>'julianday(date) DESC',
 	'condition'=>'category=:cat',
 	'params'=>array(
 		':cat'=>$model->title,
