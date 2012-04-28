@@ -1,5 +1,4 @@
 <ul>
-<hr>
 <?php
 foreach ($models as $model)
 {
