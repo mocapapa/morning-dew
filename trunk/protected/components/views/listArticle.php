@@ -13,7 +13,7 @@ foreach ($models as $model)
 		echo '<br />';
 		echo '<li style="margin-bottom:1.5px;padding-bottom:0.5px;">';
 		echo '&nbsp;&nbsp;&nbsp;';
-		echo '<b><font style="font-size:16px;color:#ff3a97;">';
+		echo '<b><font style="font-size:16px;color:#c16847;">';
 	} else if ($model->mod == 1) {
 	  // 親アイテム
 		echo '<li style="margin-bottom:1.5px;padding-bottom:0.5px;">';
