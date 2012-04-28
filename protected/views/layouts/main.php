@@ -30,10 +30,10 @@ $imageUrl=$baseUrl.'/systemImages/';
 ?>
 	<div id="header" style="line-height:0px;">
 <?php echo CHtml::link(CHtml::image($imageUrl.'morning-dew-title-dark.png','', array('id'=>'titleImage')),preg_replace('/(admin|index)\.php/', '', $this->createUrl('/')), array('id'=>'titleImage')); ?>
-
-<?php echo CHtml::link(CHtml::image($imageUrl.'558-120x80.png','image1',array('id'=>'headImage1')),array('/article/show', 'id'=>2), array('id'=>'headImage1')); ?>
-<?php echo CHtml::link(CHtml::image($imageUrl.'561-120x80.png','image2',array('id'=>'headImage2')),array('/article/show', 'id'=>3), array('id'=>'headImage2')); ?>
-<?php echo CHtml::link(CHtml::image($imageUrl.'560-120x80.png','image3',array('id'=>'headImage3')),array('/article/show', 'id'=>4), array('id'=>'headImage3')); ?>
+<?php echo CHtml::link(CHtml::image($imageUrl.'icon1.png','image1',array('id'=>'headImage1')),array('/article/show', 'id'=>2), array('id'=>'headImage1')); ?>
+<?php echo CHtml::link(CHtml::image($imageUrl.'icon2.png','image2',array('id'=>'headImage2')),array('/article/show', 'id'=>3), array('id'=>'headImage2')); ?>
+<?php echo CHtml::link(CHtml::image($imageUrl.'icon3.png','image3',array('id'=>'headImage3')),array('/article/show', 'id'=>4), array('id'=>'headImage3')); ?>
+<?php echo CHtml::link(CHtml::image($imageUrl.'icon4.png','image4',array('id'=>'headImage4')),array('/article/show', 'id'=>5), array('id'=>'headImage4')); ?>
 
 	</div><!-- header -->
 

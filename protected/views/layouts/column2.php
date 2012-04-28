@@ -14,12 +14,6 @@
 <div class="span-6 last">
 	<div id="sidebar">
 	<?php
-		echo CHtml::link(CHtml::image($imageUrl.'colon-120x80.png','image4', array('id'=>'headImage4')),
-			array('/article/show', 'id'=>5), array('id'=>'headImage4'));
-		echo '<center>';
-		echo CHtml::image($imageUrl.'holisticcare.png');
-		echo '</center>';
-
 		$this->widget('ListArticle');
 		$app = Yii::app();
 		// operations
