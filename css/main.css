@@ -256,12 +256,22 @@ div.search-form
     top:8px;
     left:38px;
 }
+#headImage1s
+{
+    position:relative;
+    left:450px;
+}
 #headImage2
 {
     border: 0px;
     position:relative;
     top:8px;
     left:44px;
+}
+#headImage2s
+{
+    position:relative;
+    left:515px;
 }
 #headImage3
 {
@@ -270,13 +280,22 @@ div.search-form
     top:8px;
     left:50px;
 }
-
+#headImage3s
+{
+    position:relative;
+    left:550px;
+}
 #headImage4
 {
     border: 0px;
     position:relative;
     top:8px;
     left:56px;
+}
+#headImage4s
+{
+    position:relative;
+    left:550px;
 }
 
 .news .summary
