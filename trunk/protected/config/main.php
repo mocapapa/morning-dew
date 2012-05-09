@@ -102,7 +102,7 @@ return array(
 		'imageHomeAbs'=>dirname(__FILE__).'/../../images/',
 		'imageBoundingBox'=>'600',
 		'imageParams'=>'style="float:left;margin:5px;"',
-		'imageThumbnailBoundingBox'=>'120',
+		'imageThumbnailBoundingBox'=>'60',
 		'maxImageSize'=>512*1024, // 512KByte
 		'profileImageBoundingBox'=>'60',
 	),
