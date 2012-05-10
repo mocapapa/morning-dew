@@ -1295,16 +1295,14 @@ var nicImageButton = nicEditorAdvancedButton.extend({
 	addPane : function() {
 		this.im = this.ne.selectedInstance.selElm().parentTag('IMG');
 
-	    var itm = new bkElement('div').setStyle({overflow : 'hidden', borderBottom : '1px solid #ccc', width: '544px', height: '0px', textAlign : 'left', overflow : 'hidden', cursor : 'pointer', margin: '2px'});
-		this.pane.append(itm);
+		new bkElement('div').setStyle({overflow : 'hidden', borderBottom : '1px solid #ccc', width: '544px', height: '0px', textAlign : 'left', overflow : 'hidden', cursor : 'pointer', margin: '2px'}).appendTo(this.pane.pane);
 
-		var html = $.ajax({
+		var imgText = JSON.parse($.ajax({
 		    url: "http://yii.localhost/demos/morning-dew/index.php?r=imageNames",
 		    async: false
-		}).responseText;
+		}).responseText);
 
- 	    	var imgText = JSON.parse(html);
-	    	for (var i=0; i<imgText.item.length;i++) {
+		for (var i=0; i<imgText.item.length;i++) {
 		    if (imgText.item[i].width == null) {
 			this.image = new bkElement('img').setAttributes({src: imgText.item[i].url, height: imgText.item[i].height}).setStyle({margin : '4px'}).appendTo(this.pane.pane);
 			this.image.onmousedown =  bkLib.addEvent;
