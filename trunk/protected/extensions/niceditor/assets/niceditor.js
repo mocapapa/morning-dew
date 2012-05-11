@@ -1297,8 +1297,9 @@ var nicImageButton = nicEditorAdvancedButton.extend({
 
 		new bkElement('div').setStyle({overflow : 'hidden', borderBottom : '1px solid #ccc', width: '544px', height: '0px', textAlign : 'left', overflow : 'hidden', cursor : 'pointer', margin: '2px'}).appendTo(this.pane.pane);
 
+		var loc = window.location;
 		var imgText = JSON.parse($.ajax({
-		    url: "http://yii.localhost/demos/morning-dew/index.php?r=imageNames",
+		    url: loc.protocol+"//"+loc.host+loc.pathname+"?r=imageNames",
 		    async: false
 		}).responseText);
 
