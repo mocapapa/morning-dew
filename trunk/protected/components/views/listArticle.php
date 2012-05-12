@@ -27,12 +27,11 @@ foreach ($models as $model)
 	} else {
 		echo $model->title;
 	}
-	echo "</li>";
 
-	if ($model->sort % 100 == 0)
-	{
+	if ($model->mod == 0 || $model->mod == 1) {
 	    echo '</font></b>';
 	}
+	echo "</li>";
 	echo "\n";
 }
 ?>
