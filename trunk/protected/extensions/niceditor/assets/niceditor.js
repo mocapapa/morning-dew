@@ -1304,14 +1304,8 @@ var nicImageButton = nicEditorAdvancedButton.extend({
 		}).responseText);
 
 		for (var i=0; i<imgText.item.length;i++) {
-		    if (imgText.item[i].width == null) {
-			this.image = new bkElement('img').setAttributes({src: imgText.item[i].url, height: imgText.item[i].height}).setStyle({margin : '4px'}).appendTo(this.pane.pane);
-			this.image.onmousedown =  bkLib.addEvent;
-		    } else {
-			this.image = new bkElement('img').setAttributes({src: imgText.item[i].url, width: imgText.item[i].width}).setStyle({margin : '4px'}).appendTo(this.pane.pane);
-		    }
+		    this.image = new bkElement('img').setAttributes({src: imgText.item[i].url, width: imgText.item[i].width, height: imgText.item[i].height}).setStyle({margin : '4px'}).appendTo(this.pane.pane);
 		}
-
 	},
 	
 	submit : function(e) {

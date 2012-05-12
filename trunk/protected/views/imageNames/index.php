@@ -19,19 +19,25 @@ foreach($filelist as $file) {
   
   $whtext = '';
   $bb = Yii::app()->params['imageThumbnailBoundingBox'];
-  if ($size[0] > $bb && $size[1] <= $bb)
-    $whtext = 'width';
-  else if ($size[0] <= $bb && $size[1] > $bb)
-    $whtext = 'height';
-  else if ($size[0] > $bb && $size[1] > $bb)
-    if (1.0 <= $size[1]/$size[0])
-      $whtext = 'height';
-    else
-      $whtext = 'width';
-  
+  $aspect = $size[1]/$size[0];
+  if ($size[0] > $bb && $size[1] <= $bb) {
+    $width = $bb;
+    $height = $bb * $aspect;
+  } else if ($size[0] <= $bb && $size[1] > $bb) {
+    $width = $bb / $aspect;
+    $height = $bb;
+  } else if ($size[0] > $bb && $size[1] > $bb) {
+    if (1.0 <= $aspect) {
+      $width = $bb / $aspect;
+      $height = $bb;
+    } else {
+      $width = $bb;
+      $height = $bb * $aspect;
+    }
+  }
   $url = Yii::app()->baseUrl.'/'.Yii::app()->params['imageHome'].$file;
   
-  $imageArray[] = array('url'=>$url, $whtext=>$bb);
+  $imageArray[] = array('url'=>$url, 'width'=>(int)($width+.5), 'height'=>(int)($height+.5));
 }
 
 echo CJSON::encode(array('item'=>$imageArray));
