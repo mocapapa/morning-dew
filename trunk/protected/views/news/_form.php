@@ -31,7 +31,11 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>15, 'cols'=>55)); ?>
+		<?php // echo $form->textArea($model,'content',array('rows'=>15, 'cols'=>55)); ?>
+		<?php $this->widget('ext.niceditor.nicEditorWidget',array(
+			"model"=>$model,
+			"attribute"=>'content',
+		)); ?>
 		<?php echo $form->error($model,'content'); ?>
 	</div>
 
