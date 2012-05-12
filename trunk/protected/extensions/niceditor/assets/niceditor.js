@@ -876,8 +876,16 @@ var nicEditorPane = bkClass.extend({
 		this.ne = nicEditor;
 		this.elm = elm;
 		this.pos = elm.pos();
-		
-		this.contain = new bkElement('div').setStyle({zIndex : '99999', overflow : 'hidden', position : 'absolute', left : this.pos[0]+'px', top : this.pos[1]+'px'})
+
+		var loc = window.location;
+		var imgText = JSON.parse($.ajax({
+		    url: loc.protocol+"//"+loc.host+loc.pathname+"?r=imageNames",
+		    async: false
+		}).responseText);
+		var imgNumY = imgText.item.length / 8;
+		var negOffset = imgNumY * 64 + 55;
+
+		this.contain = new bkElement('div').setStyle({zIndex : '99999', overflow : 'hidden', position : 'absolute', left : this.pos[0]+'px', top : (this.pos[1]-negOffset)+'px'})
 		this.pane = new bkElement('div').setStyle({fontSize : '12px', border : '1px solid #ccc', 'overflow': 'hidden', padding : '4px', textAlign: 'left', backgroundColor : '#ffffc9'}).addClass('pane').setStyle(options).appendTo(this.contain);
 		
 		if(openButton && !openButton.options.noClose) {
@@ -1295,7 +1303,7 @@ var nicImageButton = nicEditorAdvancedButton.extend({
 	addPane : function() {
 		this.im = this.ne.selectedInstance.selElm().parentTag('IMG');
 
-		new bkElement('div').setStyle({overflow : 'hidden', borderBottom : '1px solid #ccc', width: '544px', height: '0px', textAlign : 'left', overflow : 'hidden', cursor : 'pointer', margin: '2px'}).appendTo(this.pane.pane);
+		new bkElement('div').setStyle({overflow : 'hidden', borderBottom : '1px solid #ccc', width: '544px', height: '-200px', textAlign : 'left', overflow : 'hidden', cursor : 'pointer', margin: '2px'}).appendTo(this.pane.pane);
 
 		var loc = window.location;
 		var imgText = JSON.parse($.ajax({
