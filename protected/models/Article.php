@@ -123,7 +123,7 @@ class Article extends CActiveRecord
 	protected function beforeValidate()
 	{
         	$parser=new MarkdownParser;
-		$this->contentDisplay=str_replace("\n",'<br />', $parser->safeTransform($this->content));
+		$this->contentDisplay=$parser->safeTransform($this->content);
 		return true;
         }
 
