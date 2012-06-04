@@ -96,7 +96,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'ikko@pugpug.org',
+		'adminEmail'=>'ikko@morning-dew.org',
 		// configurations for highslide extension
 		'imageHome'=>'images/',
 		'imageHomeAbs'=>dirname(__FILE__).'/../../images/',

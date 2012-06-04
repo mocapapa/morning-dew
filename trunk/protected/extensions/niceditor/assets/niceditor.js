@@ -876,7 +876,7 @@ var nicEditorPane = bkClass.extend({
 		this.ne = nicEditor;
 		this.elm = elm;
 		this.pos = elm.pos();
-
+/*
 		var loc = window.location;
 		var imgText = JSON.parse($.ajax({
 		    url: loc.protocol+"//"+loc.host+loc.pathname+"?r=imageNames",
@@ -884,6 +884,8 @@ var nicEditorPane = bkClass.extend({
 		}).responseText);
 		var imgNumY = imgText.item.length / 8;
 		var negOffset = imgNumY * 64 + 55;
+*/
+	    var negOffset = 247;
 
 		this.contain = new bkElement('div').setStyle({zIndex : '99999', overflow : 'hidden', position : 'absolute', left : this.pos[0]+'px', top : (this.pos[1]-negOffset)+'px'})
 		this.pane = new bkElement('div').setStyle({fontSize : '12px', border : '1px solid #ccc', 'overflow': 'hidden', padding : '4px', textAlign: 'left', backgroundColor : '#ffffc9'}).addClass('pane').setStyle(options).appendTo(this.contain);
@@ -947,7 +949,7 @@ var nicEditorAdvancedButton = nicEditorButton.extend({
 				this.removePane();
 			} else {
 				this.pane = new nicEditorPane(this.contain,this.ne,{width : (this.width || '544px'), backgroundColor : '#fff'},this);
-				this.addPane();
+				this.addPane(this.elm);
 				this.ne.selectedInstance.saveRng();
 			}
 		}
@@ -1300,16 +1302,22 @@ var nicImageOptions = {
 /* END CONFIG */
 
 var nicImageButton = nicEditorAdvancedButton.extend({	
-	addPane : function() {
+	addPane : function(elm) {
 		this.im = this.ne.selectedInstance.selElm().parentTag('IMG');
+		this.pos = elm.pos();
 
-		new bkElement('div').setStyle({overflow : 'hidden', borderBottom : '1px solid #ccc', width: '544px', height: '-200px', textAlign : 'left', overflow : 'hidden', cursor : 'pointer', margin: '2px'}).appendTo(this.pane.pane);
+		new bkElement('div').setStyle({overflow : 'hidden', borderBottom : '1px solid #ccc', width: '544px', height: '0px', textAlign : 'left', overflow : 'hidden', cursor : 'pointer', margin: '2px'}).appendTo(this.pane.pane);
 
 		var loc = window.location;
 		var imgText = JSON.parse($.ajax({
 		    url: loc.protocol+"//"+loc.host+loc.pathname+"?r=imageNames",
 		    async: false
 		}).responseText);
+
+		var imgNumY = imgText.item.length / 8;
+		var negOffset = imgNumY * 64 + 55;
+
+	    this.pane.pane.setStyle({top : (this.pos[1]-negOffset)+'px'});
 
 		for (var i=0; i<imgText.item.length;i++) {
 		    this.image = new bkElement('img').setAttributes({src: imgText.item[i].url, width: imgText.item[i].width, height: imgText.item[i].height}).setStyle({margin : '4px'}).appendTo(this.pane.pane);
