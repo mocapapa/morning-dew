@@ -61,6 +61,8 @@ class SiteController extends Controller
 			if($model->validate())
 			{
 				$headers="From: {$model->email}\r\nReply-To: {$model->email}";
+
+				$model->body=substr_replace($model->body, "(morning-dew contactからメールが来ました。)\r\n\r\n", 0, 0);
 				mail(Yii::app()->params['adminEmail'],$model->subject,$model->body,$headers);
 				Yii::app()->user->setFlash('contact','送信ありがとうございました。すみやかにご連絡させていただきます。');
 				$this->refresh();
